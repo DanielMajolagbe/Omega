@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Blog</title>
+</head>
+<body>
+
+<h1>My Blog</h1>
+
+<textarea id="blogContent" placeholder="Write your blog post here..."></textarea>
+<button onclick="postBlog()">Post</button>
+
+<script>
+    function postBlog() {
+        var content = document.getElementById("blogContent").value;
+        if(content.trim() !== "") {
+            // Encode the content to be passed as a URL parameter
+            var encodedContent = encodeURIComponent(content);
+            // Redirect to the post.html page with the blog content as a parameter
+            window.location.href = "post.html?content=" + encodedContent;
+        } else {
+            alert("Please write something before posting.");
+        }
+    }
+</script>
+
+</body>
+</html>
